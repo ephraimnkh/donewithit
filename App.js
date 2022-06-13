@@ -1,21 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
+import { WelcomeScreen } from './app/screens/WelcomeScreen';
+import { ViewImageScreen } from './app/screens/ViewImageScreen';
 
 export default function App() {
+  let page = 'page'
+  let componentToDisplay;
+  if (page == 'welcome') {
+    componentToDisplay = <WelcomeScreen />;
+  }
+  if (page == 'view-image') {
+    componentToDisplay = <ViewImageScreen />;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1 }}>
+      <ViewImageScreen />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
